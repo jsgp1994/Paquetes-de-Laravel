@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Paquetes;
 use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Imports\UsersImport;
+use App\Jobs\ProccessImageSmall;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -130,6 +131,12 @@ class PackageController extends Controller
         Storage::disk('local')->put('example.txt', 'Hola mundo');
         $link = DownloadLinkGenerator::disk('local')->filePath('example.txt')->generate();
         return response()->json(['file' => $link]);
+    }
+
+    public function test_job()
+    {
+        ProccessImageSmall::dispatch("testing");
+        return response()->json(['tets' => 'ok']);
     }
 
 

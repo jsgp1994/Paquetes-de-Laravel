@@ -34,4 +34,5 @@ Route::group(["prefix" => "package"], function (){
     Route::post("/stripe_create_only_pay", [PackageController::class, 'stripe_create_only_pay'])->name('stripe_create_only_pay');
     Route::post("/stripe_create_suscription", [PackageController::class, 'stripe_create_suscription'])->name('stripe_create_suscription');
     Route::post("/download_link", [PackageController::class, 'download_link'])->name('download_link');
+    Route::post("/test_job", [PackageController::class, 'test_job'])->name('test_job');
 });
